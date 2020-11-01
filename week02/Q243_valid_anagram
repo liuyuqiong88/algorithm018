@@ -1,0 +1,36 @@
+import java.util.Arrays;
+
+public class Q243_valid_anagram {
+
+
+    // 思路 : 把26个字母映射成数组,然后当字符长s有就+1 ， t 有某个字母就 -1 ; 最终遍历整个数组,不为 0 就返回false
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        int[] counter = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            counter[s.charAt(i) - 'a']++;
+            counter[t.charAt(i) - 'a']--;
+        }
+        for (int count : counter) {
+            if (count != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // 方法二 , 先排序再比较两个字符串的内容是否相等
+    public boolean isAnagram1(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        char[] str1 = s.toCharArray();
+        char[] str2 = t.toCharArray();
+        Arrays.sort(str1);
+        Arrays.sort(str2);
+        return Arrays.equals(str1, str2);
+
+    }
+}
