@@ -1,9 +1,33 @@
+/*
+* 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
+
+示例1:
+
+输入: s = "anagram", t = "nagaram"
+输出: true
+示例 2:
+
+输入: s = "rat", t = "car"
+输出: false
+说明:
+你可以假设字符串只包含小写字母。
+
+进阶:
+如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/valid-anagram
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+* */
+
 import java.util.Arrays;
 
 public class Q243_valid_anagram {
 
 
+    //方法一(hash计数法)
     // 思路 : 把26个字母映射成数组,然后当字符长s有就+1 ， t 有某个字母就 -1 ; 最终遍历整个数组,不为 0 就返回false
+    // 时间复杂度 O(n) + O(26) = O(n) ; 空间复杂度 : O(26) = O(1)
     public boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) {
             return false;
@@ -22,6 +46,8 @@ public class Q243_valid_anagram {
     }
 
     // 方法二 , 先排序再比较两个字符串的内容是否相等
+    // 时间复杂度 O(2nlogn) + O(n) = O(nlogn)  --  这里 O(2nlogn) 是排序消耗的时间成本 + O(n) 遍历比较的时间
+    // 空间复杂度  O(2n) = O (n)
     public boolean isAnagram1(String s, String t) {
         if (s.length() != t.length()) {
             return false;
