@@ -4,7 +4,7 @@
 
 public class test_xuanzhuanweizhi {
 
-    // 思路 : 依旧是不断的中分,寻找的范围是存在旋转的区域,终止条件是    nums[i-1]<nums[i] < nums[i +1]
+    // 思路 : 依旧是不断的中分,寻找的范围是存在旋转的区域,终止条件是    nums[left]<nums[mid] < nums[right]
     // 当时有序是 返回  -1
     // 时间复杂度 : O(n)
     // 空间复杂度 : O(1)
